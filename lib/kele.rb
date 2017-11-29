@@ -1,4 +1,5 @@
 require 'httparty'
+require 'json'
 
 class Kele
   include HTTParty
@@ -24,14 +25,18 @@ class Kele
     end
   end
 
-  private
+  def get_me
+    JSON.parse("#{self.class.get("/users/me", headers: { "authorization" => self.auth_token })}")
+  end
 
-    def valid_credentials?
-      self.class.post('/sessions', body: @auth).code == 200 #Success Code
-    end
+  private
 
     def response
       self.class.post('/sessions', body: @auth)
+    end
+
+    def valid_credentials?
+      response.code == 200 #Success Code
     end
 
 end
