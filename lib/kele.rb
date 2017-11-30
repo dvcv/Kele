@@ -1,10 +1,14 @@
 require 'httparty'
 require 'json'
 require_relative "roadmap.rb"
+require_relative "messages.rb"
+
+
 
 class Kele
   include HTTParty
   include Roadmap
+  include Messages
   base_uri 'https://www.bloc.io/api/v1'
 
   def initialize(email,password)
