@@ -24,6 +24,10 @@ class Kele
     end
   end
 
+  def get_mentor_availability(mentor_id)
+    JSON.parse("#{self.class.get("/mentors/#{mentor_id}/student_availability", headers: { "authorization" => self.auth_token })}")
+  end
+
   def get_me
     JSON.parse("#{self.class.get("/users/me", headers: { "authorization" => self.auth_token })}")
   end
