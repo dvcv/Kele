@@ -62,7 +62,9 @@ Create a new variable using your Bloc login email and password. Kele will secure
     kele_client.get_messages(page)
 
 `create_message(sender, recipient_id, subject, stripped_text)` 
+    kele_client.create_message(sender, recipient_id, subject, stripped_text)
 
 ### Submitting Checkpoints
 
 `create_submission(checkpoint_id, assignment_branch, assignment_commit_link, comment, enrollment_id)`
+    kele_client.create_submission(checkpoint_id, assignment_branch, assignment_commit_link, comment, enrollment_id)
